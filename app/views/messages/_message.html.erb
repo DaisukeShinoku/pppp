@@ -1,6 +1,12 @@
 <div class='message'>
-<% if message.user.id == current_user.id %>
+<% confirm_user = confirm_user || nil %>
+<%#= confirm_user %>
+<%#= message.user_id == confirm_user %>
+<%= "confirm_user: #{confirm_user}, current_user: #{current_user.id}, message_user_id:#{message.user_id}" %>
+<% if message.user_id == confirm_user %>
   <%# 投稿者を特定できるようにメールアドレスを表示させておく %>
+  <div class="left-message"><%= "#{message.content}" %></div>
+<% elsif message.user_id == current_user.id%>
   <div class="left-message"><%= "#{message.content}" %></div>
 <% else %>
   <div class="right-message"><%= "#{message.content}" %></div>

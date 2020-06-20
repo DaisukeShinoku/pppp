@@ -3,6 +3,7 @@
     <div class="col-lg-4">
       <h1><%= @room.name %></h1>
     </div>
+    <%= current_user.inspect %>
     <div class="col-lg-4">
       <h4>参加者</h4>
       <% @entries.each do |e| %>
@@ -17,7 +18,7 @@
   <div class="row">
     <div class="col-lg-3"></div>
     <%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
-    <div id='messages' data-room_id="<%= @room.id %>" class="col-lg-6 border .bg-light rounded p-3">
+    <div id='messages' data-room_id="<%= @room.id %>" data-current_user_id="<%= current_user.id %>" class="col-lg-6 border .bg-light rounded p-3">
       <%= render @messages %>
     </div>
     <div class="col-lg-3"></div>

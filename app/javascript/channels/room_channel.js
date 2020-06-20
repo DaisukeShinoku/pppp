@@ -16,16 +16,19 @@ $(function() {
       return $('#messages').append(data['message']);
     },
 
-    speak: function(message) {
+    speak: function(message, confirm_user) {
+      console.log('ここが呼ばれました')
       return this.perform('speak', {
-        message: message
+        message: message, confirm_user: confirm_user
       });
     }
   });
 
   $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
+    console.log(event.target.value)
     if (event.keyCode === 13) {
-      chatChannel.speak(event.target.value);
+      const confirm_user = $('#messages').data('current_user_id')
+      chatChannel.speak(event.target.value, confirm_user);
       event.target.value = '';
       return event.preventDefault();
     }
