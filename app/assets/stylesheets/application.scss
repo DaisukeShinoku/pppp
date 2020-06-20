@@ -13,11 +13,29 @@
  *= require_tree .
  *= require_self
  */
-
+ @import "bootstrap/scss/bootstrap";
 .left-message {
-  text-align: left;
+  float: left;
+  position: relative;
+  background: #bce2e8;
+  border: 1px solid #777;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-right: 20%;
+  clear: both;
+  max-width: 500px;
 }
 
 .right-message {
-  text-align: right;
+  float: right;
+  position: relative;
+  background: #85e249;
+  border: 1px solid #777;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 20%;
+  clear: both;
+  max-width: 500px;
 }

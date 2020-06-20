@@ -1,19 +1,25 @@
 <div class="container">
   <div class="row">
-    <h1><%= @room.name %></h1>
-
-    <h4>参加者</h4>
-    <% @entries.each do |e| %>
-      <%= link_to e.user.email, user_path(e.user_id) %>
-    <% end %>
-
-    <%= label_tag :content, 'Say something:' %>
-    <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
+    <div class="col-lg-4">
+      <h1><%= @room.name %></h1>
+    </div>
+    <div class="col-lg-4">
+      <h4>参加者</h4>
+      <% @entries.each do |e| %>
+        <%= link_to e.user.email, user_path(e.user_id) %>
+      <% end %>
+    </div>
+    <div class="col-lg-4">
+      <%= label_tag :content, 'Say something:' %><br>
+      <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
+    </div>
   </div>
   <div class="row">
+    <div class="col-lg-3"></div>
     <%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
-    <div id='messages' data-room_id="<%= @room.id %>" class="col-xs-6">
+    <div id='messages' data-room_id="<%= @room.id %>" class="col-lg-6 border .bg-light rounded p-3">
       <%= render @messages %>
     </div>
+    <div class="col-lg-3"></div>
   </div>
 </div>
