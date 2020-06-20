@@ -3,7 +3,7 @@
 
 <% unless @user.id == current_user.id %>
   <% if @isRoom == true %>
-    <%= link_to "チャットへGo!", room_path(@roomId) %>
+    <%= link_to "チャットへGo!", room_path(@roomId), data: {"turbolinks" => false} %>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>
