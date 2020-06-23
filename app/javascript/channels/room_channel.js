@@ -16,18 +16,18 @@ $(function() {
       //'1' == 1 // true
       //'1' === 1 // false
       $('#messages').append(data.message);
-      let $last_message = $('.message').last();
+      let last_message = ('.message').lastElementChild;
       //console.log($last_message)
       //console.log($('#messages'))
       //console.log($('#messages').data('current_user_id'), $last_message.data('message-user-id'))
-      if ($('#messages').data('current_user_id') == $last_message.data('message-user-id')) {
+      if ($('#messages').data('current_user_id') == document.getElementById('last_message.message-user-id')) {
         // self message
-        $last_message.find('div').removeClass('right-message')
-        $last_message.find('div').addClass('left-message')
+        last_message.getElementById('message-user-id').classList.remove("right-message")
+        last_message.getElementsByTagName("div").classList.add("left-message")
       } else {
         // other message
-        $last_message.find('div').removeClass('left-message')
-        $last_message.find('div').addClass('right-message')
+        // last_message.getElementsByClassName("left-message").classList.remove("left-message")
+        // last_message.classList.add("right-message")
       }
       //return $('#messages').append(data['message']);
     },
